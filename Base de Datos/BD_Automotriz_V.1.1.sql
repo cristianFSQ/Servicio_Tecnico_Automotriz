@@ -2,6 +2,7 @@
 
 use BD_Automotriz;
 
+
 /*create table estado
 (
 est_id int not null constraint pk_est_id primary key,
@@ -55,6 +56,8 @@ mec_id int not null constraint fk_mec_id references perfiles(per_id),
 )
 go
 
+
+
 create table cliente
 (
 cli_rut char(12)not null constraint pk_cli_rut primary key,
@@ -79,3 +82,43 @@ veh_rut char(12) not null constraint fk_veh_rut references cliente(cli_rut),
 go
 
 
+--LISTAR
+create procedure LISTAR_MECANICO As 
+Select * from mecanico
+go
+
+--BUSCAR
+create procedure BUSCAR_MECANICO
+@rut char(12)
+as select * from mecanico where mec_rut=@rut
+go
+
+--INSERTAR--
+create procedure INSERTAR_MECANICO
+@rut_mecanico char(12),@clave_mecanico varchar(10),@nombre_mecanico varchar(70),@apellido_mecanico varchar(70),@tel_mecanico char(10),@email_mecanico varchar(70),@id_mec int 
+as
+insert into mecanico(mec_rut,mec_clave,mec_nom,mec_ape,mec_tel,mec_email,mec_id) values (@rut_mecanico,@clave_mecanico,@nombre_mecanico,@apellido_mecanico,@tel_mecanico,@email_mecanico,@id_mec)
+go
+
+--ACTUALIZAR
+create procedure ACTUALIZAR_MECANICO
+@rut_mecanico char(12),@clave_mecanico varchar(10),@nombre_mecanico varchar(70),@apellido_mecanico varchar(70),@tel_mecanico char(10),@email_mecanico varchar(70),@id_mec int 
+as
+update mecanico set mec_clave=@clave_mecanico,mec_nom=@nombre_mecanico,mec_ape=@apellido_mecanico,mec_tel=@tel_mecanico,mec_email=@email_mecanico,mec_id=@id_mec where mec_rut=@rut_mecanico
+go
+
+--ELIMINAR
+create procedure ELIMINAR_MECANICO
+@rut_mecanico char(12)
+as 
+delete mecanico where mec_rut=@rut_mecanico
+go
+
+
+/*
+CREATE TABLE [dbo].[UserProfile] (
+    [UserId]   INT            IDENTITY (1, 1) NOT NULL,
+    [UserName] NVARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+*/
