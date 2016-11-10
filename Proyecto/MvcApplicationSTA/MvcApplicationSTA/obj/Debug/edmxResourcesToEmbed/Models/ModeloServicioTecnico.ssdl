@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_AutomotrizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="administrador">
+    <Key>
+      <PropertyRef Name="AdmRut" />
+    </Key>
+    <Property Name="AdmRut" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="AdmCla" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="AdmNom" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="AdmApe" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="AdmID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="CliRut" />
+    </Key>
+    <Property Name="CliRut" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CliNom" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="CliApe" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="CliTel" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CliEma" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="CliCla" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CliClv" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CliSeg" Type="int" Nullable="false" />
+    <Property Name="CliPer" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="marcas">
+    <Key>
+      <PropertyRef Name="MarID" />
+    </Key>
+    <Property Name="MarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarDes" Type="varchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mecanico">
+    <Key>
+      <PropertyRef Name="MecID" />
+    </Key>
+    <Property Name="MecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MecRut" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MecCla" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MecClv" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MecNom" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="MecApe" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="MecFon" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="MecCor" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="MecUid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="modelos">
+    <Key>
+      <PropertyRef Name="ModID" />
+    </Key>
+    <Property Name="ModID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModMar" Type="int" Nullable="false" />
+    <Property Name="ModDes" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="motor">
+    <Key>
+      <PropertyRef Name="MotID" />
+    </Key>
+    <Property Name="MotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MotDes" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="seguro">
+    <Key>
+      <PropertyRef Name="SegID" />
+    </Key>
+    <Property Name="SegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SegTip" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="SedDes" Type="int" Nullable="false" />
+    <Property Name="SegVal" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserPerfiles">
+    <Key>
+      <PropertyRef Name="PerID" />
+    </Key>
+    <Property Name="PerID" Type="int" Nullable="false" />
+    <Property Name="PerDes" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vehiculo">
+    <Key>
+      <PropertyRef Name="VehID" />
+    </Key>
+    <Property Name="VehID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VerRut" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="VehAno" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="VehPat" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="VehMot" Type="int" Nullable="false" />
+    <Property Name="VehMar" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FkAdmID">
+    <End Role="UserPerfiles" Type="Self.UserPerfiles" Multiplicity="1" />
+    <End Role="administrador" Type="Self.administrador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPerfiles">
+        <PropertyRef Name="PerID" />
+      </Principal>
+      <Dependent Role="administrador">
+        <PropertyRef Name="AdmID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkCliPer">
+    <End Role="UserPerfiles" Type="Self.UserPerfiles" Multiplicity="1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPerfiles">
+        <PropertyRef Name="PerID" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="CliPer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkCliSeg">
+    <End Role="seguro" Type="Self.seguro" Multiplicity="1" />
+    <End Role="cliente" Type="Self.cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="seguro">
+        <PropertyRef Name="SegID" />
+      </Principal>
+      <Dependent Role="cliente">
+        <PropertyRef Name="CliSeg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkMecUid">
+    <End Role="UserPerfiles" Type="Self.UserPerfiles" Multiplicity="1" />
+    <End Role="mecanico" Type="Self.mecanico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserPerfiles">
+        <PropertyRef Name="PerID" />
+      </Principal>
+      <Dependent Role="mecanico">
+        <PropertyRef Name="MecUid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FKModMar">
+    <End Role="marcas" Type="Self.marcas" Multiplicity="1" />
+    <End Role="modelos" Type="Self.modelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marcas">
+        <PropertyRef Name="MarID" />
+      </Principal>
+      <Dependent Role="modelos">
+        <PropertyRef Name="ModMar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkVehMar">
+    <End Role="marcas" Type="Self.marcas" Multiplicity="1" />
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marcas">
+        <PropertyRef Name="MarID" />
+      </Principal>
+      <Dependent Role="vehiculo">
+        <PropertyRef Name="VehMar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkVehMot">
+    <End Role="motor" Type="Self.motor" Multiplicity="1" />
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="motor">
+        <PropertyRef Name="MotID" />
+      </Principal>
+      <Dependent Role="vehiculo">
+        <PropertyRef Name="VehMot" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FkVerRut">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+    <End Role="vehiculo" Type="Self.vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="CliRut" />
+      </Principal>
+      <Dependent Role="vehiculo">
+        <PropertyRef Name="VerRut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BD_AutomotrizModelStoreContainer">
+    <EntitySet Name="administrador" EntityType="Self.administrador" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marcas" EntityType="Self.marcas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mecanico" EntityType="Self.mecanico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="modelos" EntityType="Self.modelos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="motor" EntityType="Self.motor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="seguro" EntityType="Self.seguro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPerfiles" EntityType="Self.UserPerfiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vehiculo" EntityType="Self.vehiculo" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FkAdmID" Association="Self.FkAdmID">
+      <End Role="UserPerfiles" EntitySet="UserPerfiles" />
+      <End Role="administrador" EntitySet="administrador" />
+    </AssociationSet>
+    <AssociationSet Name="FkCliPer" Association="Self.FkCliPer">
+      <End Role="UserPerfiles" EntitySet="UserPerfiles" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FkCliSeg" Association="Self.FkCliSeg">
+      <End Role="seguro" EntitySet="seguro" />
+      <End Role="cliente" EntitySet="cliente" />
+    </AssociationSet>
+    <AssociationSet Name="FkMecUid" Association="Self.FkMecUid">
+      <End Role="UserPerfiles" EntitySet="UserPerfiles" />
+      <End Role="mecanico" EntitySet="mecanico" />
+    </AssociationSet>
+    <AssociationSet Name="FKModMar" Association="Self.FKModMar">
+      <End Role="marcas" EntitySet="marcas" />
+      <End Role="modelos" EntitySet="modelos" />
+    </AssociationSet>
+    <AssociationSet Name="FkVehMar" Association="Self.FkVehMar">
+      <End Role="marcas" EntitySet="marcas" />
+      <End Role="vehiculo" EntitySet="vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FkVehMot" Association="Self.FkVehMot">
+      <End Role="motor" EntitySet="motor" />
+      <End Role="vehiculo" EntitySet="vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FkVerRut" Association="Self.FkVerRut">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="vehiculo" EntitySet="vehiculo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

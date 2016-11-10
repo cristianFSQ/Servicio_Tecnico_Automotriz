@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_AutomotrizModelStoreContainer" CdmEntityContainer="BD_AutomotrizEntities">
+    <EntitySetMapping Name="administrador">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.administrador">
+        <MappingFragment StoreEntitySet="administrador">
+          <ScalarProperty Name="AdmRut" ColumnName="AdmRut" />
+          <ScalarProperty Name="AdmCla" ColumnName="AdmCla" />
+          <ScalarProperty Name="AdmNom" ColumnName="AdmNom" />
+          <ScalarProperty Name="AdmApe" ColumnName="AdmApe" />
+          <ScalarProperty Name="AdmID" ColumnName="AdmID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="CliRut" ColumnName="CliRut" />
+          <ScalarProperty Name="CliNom" ColumnName="CliNom" />
+          <ScalarProperty Name="CliApe" ColumnName="CliApe" />
+          <ScalarProperty Name="CliTel" ColumnName="CliTel" />
+          <ScalarProperty Name="CliEma" ColumnName="CliEma" />
+          <ScalarProperty Name="CliCla" ColumnName="CliCla" />
+          <ScalarProperty Name="CliClv" ColumnName="CliClv" />
+          <ScalarProperty Name="CliSeg" ColumnName="CliSeg" />
+          <ScalarProperty Name="CliPer" ColumnName="CliPer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcas">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.marcas">
+        <MappingFragment StoreEntitySet="marcas">
+          <ScalarProperty Name="MarID" ColumnName="MarID" />
+          <ScalarProperty Name="MarDes" ColumnName="MarDes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mecanico">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.mecanico">
+        <MappingFragment StoreEntitySet="mecanico">
+          <ScalarProperty Name="MecID" ColumnName="MecID" />
+          <ScalarProperty Name="MecRut" ColumnName="MecRut" />
+          <ScalarProperty Name="MecCla" ColumnName="MecCla" />
+          <ScalarProperty Name="MecClv" ColumnName="MecClv" />
+          <ScalarProperty Name="MecNom" ColumnName="MecNom" />
+          <ScalarProperty Name="MecApe" ColumnName="MecApe" />
+          <ScalarProperty Name="MecFon" ColumnName="MecFon" />
+          <ScalarProperty Name="MecCor" ColumnName="MecCor" />
+          <ScalarProperty Name="MecUid" ColumnName="MecUid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modelos">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.modelos">
+        <MappingFragment StoreEntitySet="modelos">
+          <ScalarProperty Name="ModID" ColumnName="ModID" />
+          <ScalarProperty Name="ModMar" ColumnName="ModMar" />
+          <ScalarProperty Name="ModDes" ColumnName="ModDes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="motor">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.motor">
+        <MappingFragment StoreEntitySet="motor">
+          <ScalarProperty Name="MotID" ColumnName="MotID" />
+          <ScalarProperty Name="MotDes" ColumnName="MotDes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="seguro">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.seguro">
+        <MappingFragment StoreEntitySet="seguro">
+          <ScalarProperty Name="SegID" ColumnName="SegID" />
+          <ScalarProperty Name="SegTip" ColumnName="SegTip" />
+          <ScalarProperty Name="SedDes" ColumnName="SedDes" />
+          <ScalarProperty Name="SegVal" ColumnName="SegVal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPerfiles">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.UserPerfiles">
+        <MappingFragment StoreEntitySet="UserPerfiles">
+          <ScalarProperty Name="PerID" ColumnName="PerID" />
+          <ScalarProperty Name="PerDes" ColumnName="PerDes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vehiculo">
+      <EntityTypeMapping TypeName="BD_AutomotrizModel.vehiculo">
+        <MappingFragment StoreEntitySet="vehiculo">
+          <ScalarProperty Name="VehID" ColumnName="VehID" />
+          <ScalarProperty Name="VerRut" ColumnName="VerRut" />
+          <ScalarProperty Name="VehAno" ColumnName="VehAno" />
+          <ScalarProperty Name="VehPat" ColumnName="VehPat" />
+          <ScalarProperty Name="VehMot" ColumnName="VehMot" />
+          <ScalarProperty Name="VehMar" ColumnName="VehMar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

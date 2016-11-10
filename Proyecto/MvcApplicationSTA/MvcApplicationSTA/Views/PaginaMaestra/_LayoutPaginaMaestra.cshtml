@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>@Page.Title</title>
+        @RenderSection("head", required: false)
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        @Styles.Render("~/Content/EstiloAutomotriz")
+        <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+        <link href="~/Content/Estilos/bootstrap3/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/Estilos/bootstrap3/css/bootstrap.min.css" rel="stylesheet" />  
+        <script src="~/Content/Estilos/jquery-3.1.1.js"></script>
+
+    </head>
+    <body>
+
+        <div class="contenedor">
+            <header>
+                <div class="logo">
+                    <img src="~/Content/Images/logo.PNG" alt="servicio Tecnico JM" />
+                    <a href="#">Servicio Tecnico JM</a>
+                </div>
+
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#">Home</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                               
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Administrador<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Crear Cliente</a></li>
+                                        <li><a href="#">Crear Mec&aacute;nico</a></li>
+                                        <li><a href="#">Gesti&oacute;n</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Respuestos</a></li>
+                                <li><a href="#">Seguros</a></li>
+                                <li><a href="#">Servicio T&eacute;cnico</a></li>
+                                <li><a href="#">Mec&aacute;nico</a></li>
+                                <li><a href="#">Cliente</a></li>
+                                <li><a href="#">Contacto</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Iniciar Sesi&oacute;n</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </header>
+
+            @if (IsSectionDefined("region_principal"))
+            {
+                @RenderSection("region_principal")
+            }
+            else
+            {
+                <section class="main">
+                    <article class="portada">
+                        <img class="slides w3-animate-left" src="~/Content/Images/portada1.jpg" />
+                        <img class="slides w3-animate-right" src="~/Content/Images/promo2.jpg">
+                        <img class="slides w3-animate-bottom" src="~/Content/Images/promo3.jpg">
+                        <img class="slides w3-animate-top" src="~/Content/Images/repuestos.jpg">
+                    </article>
+         
+                    <script>
+                            var myIndex = 0;
+                            carousel();
+
+                            function carousel() {
+                                var i;
+                                var x = document.getElementsByClassName("slides");
+                                for (i = 0; i < x.length; i++) {
+                                    x[i].style.display = "none";
+                                }
+                                myIndex++;
+                                if (myIndex > x.length) {myIndex = 1}
+                                x[myIndex-1].style.display = "block";
+                                setTimeout(carousel, 3000);
+                            }
+                    </script>
+
+                    <article>
+                        <h2>Servicio Tecnico Automotriz "J M"</h2>
+                        <p class="jumbotron text-justify texto_mecanico">
+                            Brindamos atención especial a Servicios Públicos por más de 10 años, lo que avala nuestra
+                            trayectoria en la calidad de nuestros servicios.
+                            Del mismo modo, atendemos a importantes empresas particulares de la Región de la Araucania
+                            Brindamos atención especial a Servicios Públicos por más de 10 años, lo que avala nuestra
+                            trayectoria en la calidad de nuestros servicios.
+                            Del mismo modo, atendemos a importantes empresas particulares de la Región de la Araucania
+                        </p>
+                    </article>
+        </section>
+            }
+
+
+            @if (IsSectionDefined("region_baner"))
+            {
+                @RenderSection("region_baner")
+            }
+            else
+            {
+                <aside>
+                    <div class="baner1">
+                        <div class="baner2">
+                            <h4>Agendar hora Online</h4>
+                            <p class="text-muted h5">Gane tiempo reservando directamente su hora.</p>
+                            <button type="button" class="btn btn-primary">Agendar</button>
+                        </div>
+                    </div>
+                    <div class="baner1">
+                        <div class="baner2">
+                            <h4>Seguimiento</h4>
+                            <p class="text-muted  h5">Si tu vehículo esta en nuestro taller mecánico revisa su estado aquí.</p>
+                            <button type="button" class="btn btn-primary">Ver Status</button>
+                        </div>
+                    </div>
+                    <div class="baner1">
+                        <div class="baner2">
+                            <img src="~/Content/Images/contactos.jpg" />
+                        </div>
+                    </div>
+
+                </aside>
+            }
+
+            <footer>
+
+                <div>
+                    <p class="pie">&copy;2016 | Sitio Desarrollado por SONE | Chile, Region IX de la Araucania, Temuco</p>
+                </div>
+
+            </footer>
+        </div>
+
+        @RenderBody()
+
+       <script src="~/Content/Estilos/bootstrap3/js/bootstrap.min.js"></script>
+
+        @*
+         @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        *@   
+
+    </body>
+</html>
