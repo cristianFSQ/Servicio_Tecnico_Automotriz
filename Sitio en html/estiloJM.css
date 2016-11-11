@@ -1,0 +1,175 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+    background:#e9e9e9;
+    font-family:Verdana, Geneva, sans-serif;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+
+.contenedor{
+    background:#CCC;
+    width: 100%;
+    margin: auto;
+    /*flex*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+header{
+    /*background: #2c3e50; */
+   background:#fff;
+    width: 100%;
+    padding: 10px;
+    /*flex*/
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    flex-direction:row;
+    flex-wrap: wrap;
+}
+
+header .logo{
+    font-size: 18px;
+}
+
+header .logo img{
+   
+   /*border-radius:50%;*/ 
+    width:70px;
+    height:60px;
+    vertical-align: top;
+}
+
+header .logo a{
+    color: #2c3e50;
+    text-decoration: none;
+    line-height: 50px;
+}
+
+.main{
+    background: #fff;
+    flex:1 1 75%;
+}
+
+.main article{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.main article:nth-last-child(1){
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.texto_mecanico{
+    padding:0 10px 0 10px;
+}
+
+aside{
+    background: #808080;
+    padding: 10px;
+    /*flex*/
+    flex: 1 1 25%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+}
+
+
+aside .baner1{
+    background: #e9e9e9;
+    height: 160px;
+    margin: 5px ;
+    align-items: center;
+}
+
+
+aside .baner2{
+    /*color: #fff;*/
+    background:#e9e9e9;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin:10px;
+}
+
+.baner2 img{
+    width:100%;
+    height:100%;
+    margin:18px;
+}
+
+.portada img{
+    width:100%;
+    height:100%;
+}
+
+.slides{
+    display: none;
+}
+
+footer{
+    background: #2c3e50;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+footer .pie{
+    color:#fff;
+    font-size:11px;
+}
+
+
+@media only screen and (max-width: 850px){
+    .contenedor{
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    header{
+        flex-direction: column;
+        padding: 0;
+        background: #fff;
+    }
+    
+    header .logo{
+        margin: 20px 0;
+    }
+    
+    
+    aside{
+        flex-direction: row;
+        flex: 0;
+    }
+    
+
+}
+
+@media only screen and (max-width: 600px){
+    aside{
+        flex-direction: column;
+    }
+    
+    footer{
+        justify-content: space-around;
+    }
+}
