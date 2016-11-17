@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.625, 11.125" name="DataAutomotriz">
+  <DataContextMoniker Name="/DataAutomotrizDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6f28c341-00d4-4f11-a3bf-7ff271f66fa6" absoluteBounds="5, 9.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/administrador" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e399ff90-c0b1-4224-9f76-eacb4558e9c6" absoluteBounds="5.015, 9.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26391090-4478-4823-b164-4e82dc191acb" absoluteBounds="3, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/cliente" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a50e522-f5b6-4c8e-b470-a1f2d6dc6a78" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9fb6ec46-94ea-4e40-978d-ded1986235be" absoluteBounds="5.375, 0.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/marcas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="89268822-a7b4-4b5e-84a9-fca4b50fe65a" absoluteBounds="5.39, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0116fb68-31cb-4295-a622-29c104f2e5df" absoluteBounds="6.25, 4.375, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/mecanico" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6bdb5b51-e46f-4f92-b87c-73cf60269be9" absoluteBounds="6.2650000000000006, 4.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7cb5f566-b5b7-475a-b3f5-76064d367752" absoluteBounds="6.375, 1.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/modelos" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aec4b899-9228-4386-9c3d-8f30fa16f065" absoluteBounds="6.39, 2.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.875 : 1.69399251302083); (6.875 : 1.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/marcas/marcas_modelos" />
+      <nodes>
+        <classShapeMoniker Id="9fb6ec46-94ea-4e40-978d-ded1986235be" />
+        <classShapeMoniker Id="7cb5f566-b5b7-475a-b3f5-76064d367752" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bf310131-f110-4be3-bdd0-ac1c272d3513" absoluteBounds="8.875, 0.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/motor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ce7024a-3549-4048-8113-cec00d3909da" absoluteBounds="8.89, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a996580c-5f20-4b43-9311-79e881e59f6f" absoluteBounds="2.125, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/seguro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="50347810-9a0d-4410-b85c-4dc503c966d1" absoluteBounds="2.1399999999999997, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5625 : 3.875); (3.5625 : 3.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/seguro/seguro_cliente" />
+      <nodes>
+        <classShapeMoniker Id="a996580c-5f20-4b43-9311-79e881e59f6f" />
+        <classShapeMoniker Id="26391090-4478-4823-b164-4e82dc191acb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ebfa84a6-da11-4c16-a4fc-0061ebe5fe85" absoluteBounds="9.375, 7.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/UserPerfiles" />
+      <nestedChildShapes>
+        <elementListCompartment Id="14d9a09a-3060-461e-8809-5e8045ef8293" absoluteBounds="9.39, 7.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.375 : 7.97199625651042); (6 : 7.97199625651042); (6 : 9.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/UserPerfiles/UserPerfiles_administrador" />
+      <nodes>
+        <classShapeMoniker Id="ebfa84a6-da11-4c16-a4fc-0061ebe5fe85" />
+        <classShapeMoniker Id="6f28c341-00d4-4f11-a3bf-7ff271f66fa6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.375 : 8.35984537760417); (6.08333333333333 : 8.35984537760417 : JumpStart); (5.91666666666667 : 8.35984537760417 : JumpEnd); (4.59375 : 8.35984537760417); (4.59375 : 3.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/UserPerfiles/UserPerfiles_cliente" />
+      <nodes>
+        <classShapeMoniker Id="ebfa84a6-da11-4c16-a4fc-0061ebe5fe85" />
+        <classShapeMoniker Id="26391090-4478-4823-b164-4e82dc191acb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.375 : 7.64224562825521); (7.25 : 7.64224562825521); (7.25 : 6.9151025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/UserPerfiles/UserPerfiles_mecanico" />
+      <nodes>
+        <classShapeMoniker Id="ebfa84a6-da11-4c16-a4fc-0061ebe5fe85" />
+        <classShapeMoniker Id="0116fb68-31cb-4295-a622-29c104f2e5df" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="be3794f6-135e-49eb-8b7a-9ed3affbff25" absoluteBounds="1.375, 6.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataAutomotrizDataContext/vehiculo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9fdbeb6e-e6ed-4cf8-a784-5c728b8bc02d" absoluteBounds="1.3899999999999997, 6.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 1.09699625651042); (5.0625 : 1.09699625651042); (5.0625 : 3.75); (4.67708333333333 : 3.75 : JumpStart); (4.51041666666667 : 3.75 : JumpEnd); (3.64583333333333 : 3.75 : JumpStart); (3.47916666666667 : 3.75 : JumpEnd); (2.0625 : 3.75); (2.0625 : 6.03125); (2.375 : 6.03125); (2.375 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/marcas/marcas_vehiculo" />
+      <nodes>
+        <classShapeMoniker Id="9fb6ec46-94ea-4e40-978d-ded1986235be" />
+        <classShapeMoniker Id="be3794f6-135e-49eb-8b7a-9ed3affbff25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.09375 : 2.06899251302083); (9.09375 : 7.14505126953125); (3.375 : 7.14505126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/motor/motor_vehiculo" />
+      <nodes>
+        <classShapeMoniker Id="bf310131-f110-4be3-bdd0-ac1c272d3513" />
+        <classShapeMoniker Id="be3794f6-135e-49eb-8b7a-9ed3affbff25" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3 : 1.77005126953125); (1.71875 : 1.77005126953125); (1.71875 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataAutomotrizDataContext/cliente/cliente_vehiculo" />
+      <nodes>
+        <classShapeMoniker Id="26391090-4478-4823-b164-4e82dc191acb" />
+        <classShapeMoniker Id="be3794f6-135e-49eb-8b7a-9ed3affbff25" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

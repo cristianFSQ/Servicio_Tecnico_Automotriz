@@ -14,6 +14,7 @@ body{
 
 
 
+
 .contenedor{
     background:#CCC;
     width: 100%;
@@ -148,13 +149,18 @@ footer .pie{
     header{
         flex-direction: column;
         padding: 0;
-        background: #fff;
+      /*background: #fff;*/  
+      background:#222;
     }
     
     header .logo{
         margin: 20px 0;
     }
     
+    header .logo a{
+    color: #fff;
+    text-decoration: none;
+}
     
     aside{
         flex-direction: row;

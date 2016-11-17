@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -128,9 +129,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MecanicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClaseCliente.cs" />
+    <Compile Include="Models\ClaseMecanico.cs" />
+    <Compile Include="Models\DataAutomotriz.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAutomotriz.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -146,6 +156,7 @@
     <Content Include="Content\Estilos\bootstrap3\js\npm.js" />
     <Content Include="Content\Estilos\estiloJM.css" />
     <Content Include="Content\Estilos\jquery-3.1.1.js" />
+    <Content Include="Content\Estilos\slide.css" />
     <Content Include="Content\Images\cont.PNG" />
     <Content Include="Content\Images\contactos.jpg" />
     <Content Include="Content\Images\logo.PNG" />
@@ -217,6 +228,11 @@
     <Content Include="Content\Estilos\bootstrap3\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\Estilos\bootstrap3\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\Estilos\bootstrap3\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Models\DataAutomotriz.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataAutomotriz.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -246,15 +262,22 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\PaginaMaestra\_LayoutPaginaMaestra.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Mecanico\Index.cshtml" />
+    <Content Include="Views\Mecanico\Create.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataAutomotriz.dbml.layout">
+      <DependentUpon>DataAutomotriz.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -38,7 +38,9 @@ namespace MvcApplicationSTA
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
             bundles.Add(new StyleBundle("~/Content/EstiloAutomotriz").Include("~/Content/Estilos/estiloJM.css"));
+           // bundles.Add(new StyleBundle("~/Content/EstiloJquery").Include("~/Content/Estilos//jquery-3.1.1.js"));
            // bundles.Add(new StyleBundle("~/Content/EstiloBootstrap").Include("~/Content/Estilos/bootstrap3/css/bootstrap.min.css"));
            // bundles.Add(new StyleBundle("~/Content/EstiloBootstrap2").Include("~/Content/Estilos/bootstrap3/css/bootstrap-theme.min.css"));
         }

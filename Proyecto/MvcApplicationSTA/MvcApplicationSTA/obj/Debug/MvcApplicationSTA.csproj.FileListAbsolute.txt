@@ -38,6 +38,6 @@ C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApp
 C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\bin\es\System.Web.WebPages.resources.dll
 C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\bin\es\System.Web.WebPages.Deployment.resources.dll
 C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\bin\es\System.Web.WebPages.Razor.resources.dll
-C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\obj\Debug\MvcApplicationSTA.csprojResolveAssemblyReference.cache
 C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\obj\Debug\MvcApplicationSTA.dll
 C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\obj\Debug\MvcApplicationSTA.pdb
+C:\Users\Cristian\Documents\Visual Studio 2013\Projects\MvcApplicationSTA\MvcApplicationSTA\obj\Debug\MvcApplicationSTA.csprojResolveAssemblyReference.cache

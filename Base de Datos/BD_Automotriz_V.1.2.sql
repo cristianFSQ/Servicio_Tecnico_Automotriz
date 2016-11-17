@@ -1,7 +1,7 @@
-create database BD_Automotriz;
-use BD_Automotriz;
+create database BD_Automotriz
+use BD_Automotriz
 
-
+select * from mecanico
 
 -- 1. TABLA PERFIL DE USUARIO
 
@@ -178,6 +178,7 @@ CliPer int not null constraint FkCliPer references UserPerfiles(PerID),
 )
 go
 
+
 -- 9. TABLA VEHICULOS
 
 create table vehiculo
@@ -193,3 +194,50 @@ VehMar int not null constraint FkVehMar references marcas(MarID),
 go
 
 
+											/*PROCEDIMEINTOS ALMACENADOS*/
+
+--LISTAR MECANICO
+create procedure LISTAR_MECANICO As 
+select MecRut,MecCla,MecClv,MecNom,MecApe,MecFon,MecCor from mecanico
+go
+
+--BUSCAR MECANICO
+
+--INSERTAR MECANICO
+create procedure INSERTAR_MECANICO
+@RutM char(12),@Clave1M varchar(10),@Clave2M varchar(10),@NombreM varchar(70),@ApellidoM varchar(70),@FonoM char(10),@CorreoM varchar(70),@IdM int
+as
+insert into mecanico(MecRut,MecCla,MecClv,MecNom,MecApe,MecFon,MecCor,MecUid)values(@RutM,@Clave1M,@Clave2M,@NombreM,@ApellidoM,@FonoM,@CorreoM,@IdM)
+go
+
+
+--EDITAR MECANICO
+
+--ELIMINAR MECANICO
+create procedure ELIMINAR_MECANICO
+@rut_mecanico int
+as 
+delete mecanico where MecID=@rut_mecanico
+go
+
+--BUSCAR MECANICO
+--BUSCAR
+create procedure BUSCAR_MECANICO
+@rut int
+as select * from mecanico where MecID=@rut
+go
+
+
+--LISTAR CLIENTE
+create procedure LISTAR_CLIENTE As 
+SELECT cliente.CliRut, cliente.CliNom, cliente.CliApe, cliente.CliTel, cliente.CliCla, cliente.CliClv, cliente.CliEma,seguro.SegTip
+FROM   cliente INNER JOIN
+       seguro ON cliente.CliSeg = seguro.SegID
+go
+
+--INSERTAR CLIENTE
+create procedure INSERTAR_CLIENTE
+@RutC char(12),@NombreC varchar(70),@ApellidoC varchar(70),@FonoC varchar(10),@EmailC varchar(70),@Clave1C varchar(10),@Clave2C varchar(10),@SeguroC int,@IdC int=2
+as
+insert into cliente(CliRut,CliNom,CliApe,CliTel,CliEma,CliCla,CliClv,CliSeg,CliPer)values(@RutC,@NombreC,@ApellidoC,@FonoC,@EmailC,@Clave1C,@Clave2C,@SeguroC,@IdC)
+go

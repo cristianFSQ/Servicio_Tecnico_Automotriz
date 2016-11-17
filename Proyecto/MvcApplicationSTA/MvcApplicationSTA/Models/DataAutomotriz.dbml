@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD_Automotriz" Class="DataAutomotrizDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=CRISTIAN-PC;Initial Catalog=BD_Automotriz;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BD_AutomotrizConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.administrador" Member="administrador">
+    <Type Name="administrador">
+      <Column Name="AdmRut" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AdmCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="AdmNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="AdmApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="AdmID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UserPerfiles_administrador" Member="UserPerfiles" ThisKey="AdmID" OtherKey="PerID" Type="UserPerfiles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.cliente" Member="cliente">
+    <Type Name="cliente">
+      <Column Name="CliRut" Type="System.String" DbType="Char(12) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CliNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CliApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CliTel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliEma" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CliCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliClv" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliSeg" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CliPer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="cliente_vehiculo" Member="vehiculo" ThisKey="CliRut" OtherKey="VerRut" Type="vehiculo" />
+      <Association Name="seguro_cliente" Member="seguro" ThisKey="CliSeg" OtherKey="SegID" Type="seguro" IsForeignKey="true" />
+      <Association Name="UserPerfiles_cliente" Member="UserPerfiles" ThisKey="CliPer" OtherKey="PerID" Type="UserPerfiles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.marcas" Member="marcas">
+    <Type Name="marcas">
+      <Column Name="MarID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MarDes" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="marcas_modelos" Member="modelos" ThisKey="MarID" OtherKey="ModMar" Type="modelos" />
+      <Association Name="marcas_vehiculo" Member="vehiculo" ThisKey="MarID" OtherKey="VehMar" Type="vehiculo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.mecanico" Member="mecanico">
+    <Type Name="mecanico">
+      <Column Name="MecID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MecRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecClv" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecFon" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCor" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecUid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UserPerfiles_mecanico" Member="UserPerfiles" ThisKey="MecUid" OtherKey="PerID" Type="UserPerfiles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.modelos" Member="modelos">
+    <Type Name="modelos">
+      <Column Name="ModID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ModMar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ModDes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="marcas_modelos" Member="marcas" ThisKey="ModMar" OtherKey="MarID" Type="marcas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.motor" Member="motor">
+    <Type Name="motor">
+      <Column Name="MotID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MotDes" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="motor_vehiculo" Member="vehiculo" ThisKey="MotID" OtherKey="VehMot" Type="vehiculo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.seguro" Member="seguro">
+    <Type Name="seguro">
+      <Column Name="SegID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SegTip" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SedDes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SegVal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="seguro_cliente" Member="cliente" ThisKey="SegID" OtherKey="CliSeg" Type="cliente" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserPerfiles" Member="UserPerfiles">
+    <Type Name="UserPerfiles">
+      <Column Name="PerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PerDes" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="UserPerfiles_administrador" Member="administrador" ThisKey="PerID" OtherKey="AdmID" Type="administrador" />
+      <Association Name="UserPerfiles_cliente" Member="cliente" ThisKey="PerID" OtherKey="CliPer" Type="cliente" />
+      <Association Name="UserPerfiles_mecanico" Member="mecanico" ThisKey="PerID" OtherKey="MecUid" Type="mecanico" />
+    </Type>
+  </Table>
+  <Table Name="dbo.vehiculo" Member="vehiculo">
+    <Type Name="vehiculo">
+      <Column Name="VehID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VerRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="VehAno" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VehPat" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="VehMot" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VehMar" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="marcas_vehiculo" Member="marcas" ThisKey="VehMar" OtherKey="MarID" Type="marcas" IsForeignKey="true" />
+      <Association Name="motor_vehiculo" Member="motor" ThisKey="VehMot" OtherKey="MotID" Type="motor" IsForeignKey="true" />
+      <Association Name="cliente_vehiculo" Member="cliente" ThisKey="VerRut" OtherKey="CliRut" Type="cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.LISTAR_MECANICO" Method="LISTAR_MECANICO">
+    <ElementType Name="LISTAR_MECANICOResult">
+      <Column Name="MecRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecClv" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecFon" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCor" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ELIMINAR_MECANICO" Method="ELIMINAR_MECANICO">
+    <Parameter Name="rut_mecanico" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.BUSCAR_MECANICO" Method="BUSCAR_MECANICO">
+    <Parameter Name="rut" Type="System.Int32" DbType="Int" />
+    <ElementType Name="BUSCAR_MECANICOResult">
+      <Column Name="MecID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MecRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecClv" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecFon" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MecCor" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="MecUid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSERTAR_CLIENTE" Method="INSERTAR_CLIENTE">
+    <Parameter Name="RutC" Parameter="rutC" Type="System.String" DbType="Char(12)" />
+    <Parameter Name="NombreC" Parameter="nombreC" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="ApellidoC" Parameter="apellidoC" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="FonoC" Parameter="fonoC" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="EmailC" Parameter="emailC" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="Clave1C" Parameter="clave1C" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Clave2C" Parameter="clave2C" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="SeguroC" Parameter="seguroC" Type="System.Int32" DbType="Int" />
+    <Parameter Name="IdC" Parameter="idC" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LISTAR_CLIENTE" Method="LISTAR_CLIENTE">
+    <ElementType Name="LISTAR_CLIENTEResult">
+      <Column Name="CliRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="CliNom" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CliApe" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="CliTel" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliCla" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliClv" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CliEma" Type="System.String" DbType="VarChar(70) NOT NULL" CanBeNull="false" />
+      <Column Name="SegTip" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSERTAR_MECANICO" Method="INSERTAR_MECANICO">
+    <Parameter Name="RutM" Parameter="rutM" Type="System.String" DbType="Char(12)" />
+    <Parameter Name="Clave1M" Parameter="clave1M" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="Clave2M" Parameter="clave2M" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="NombreM" Parameter="nombreM" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="ApellidoM" Parameter="apellidoM" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="FonoM" Parameter="fonoM" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="CorreoM" Parameter="correoM" Type="System.String" DbType="VarChar(70)" />
+    <Parameter Name="IdM" Parameter="idM" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
