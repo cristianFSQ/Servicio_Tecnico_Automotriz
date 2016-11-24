@@ -1,0 +1,123 @@
+﻿@model MvcApplicationSTA.Models.cliente
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/PaginaMaestra/_LayoutPaginaMaestra.cshtml";
+}
+
+@section region_principal{
+
+    <h2>Registro nuevo Cliente</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>cliente</legend>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliRut, "Rut")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliRut)
+                @Html.ValidationMessageFor(model => model.CliRut)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliNom, "Nombre")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliNom)
+                @Html.ValidationMessageFor(model => model.CliNom)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliApe, "Apellido")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliApe)
+                @Html.ValidationMessageFor(model => model.CliApe)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliTel, "Telefono")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliTel)
+                @Html.ValidationMessageFor(model => model.CliTel)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliEma, "Correo Electronico")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliEma)
+                @Html.ValidationMessageFor(model => model.CliEma)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliCla, "Clave")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliCla)
+                @Html.ValidationMessageFor(model => model.CliCla)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliClv, "Confirme Clave")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliClv)
+                @Html.ValidationMessageFor(model => model.CliClv)
+            </div>
+
+            @* <div class="editor-label">
+                        @Html.LabelFor(model => model.CliSeg)
+                    </div>
+
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CliSeg)
+                    @Html.ValidationMessageFor(model => model.CliSeg)
+                </div> *@
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CliSeg, "Seguro")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CliSeg)
+                @Html.ValidationMessageFor(model => model.CliSeg)
+            </div>
+            @*
+                <div class="editor-field">
+                    @Html.DropDownList("CliSeg", String.Empty)
+                    @Html.ValidationMessageFor(model => model.CliSeg)
+                </div>
+            *@
+            <p>
+                <input type="submit" value="Crear" />
+            </p>
+        </fieldset>
+    }
+
+
+    <div>
+        @Html.ActionLink("Regresar", "Index")
+    </div>
+
+
+<div>
+    @Html.ActionLink("Crear vehiculo", "CreateV")
+</div>
+
+}
+
+@section region_baner{
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

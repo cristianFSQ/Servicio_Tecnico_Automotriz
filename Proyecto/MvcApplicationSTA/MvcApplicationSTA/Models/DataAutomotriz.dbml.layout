@@ -91,7 +91,7 @@
         <elementListCompartment Id="9fdbeb6e-e6ed-4cf8-a784-5c728b8bc02d" absoluteBounds="1.3899999999999997, 6.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.375 : 1.09699625651042); (5.0625 : 1.09699625651042); (5.0625 : 3.75); (4.67708333333333 : 3.75 : JumpStart); (4.51041666666667 : 3.75 : JumpEnd); (3.64583333333333 : 3.75 : JumpStart); (3.47916666666667 : 3.75 : JumpEnd); (2.0625 : 3.75); (2.0625 : 6.03125); (2.375 : 6.03125); (2.375 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.375 : 1.09699625651042); (5.0625 : 1.09699625651042); (5.0625 : 3.75); (2.0625 : 3.75); (2.0625 : 6.03125); (2.375 : 6.03125); (2.375 : 6.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataAutomotrizDataContext/marcas/marcas_vehiculo" />
       <nodes>
         <classShapeMoniker Id="9fb6ec46-94ea-4e40-978d-ded1986235be" />

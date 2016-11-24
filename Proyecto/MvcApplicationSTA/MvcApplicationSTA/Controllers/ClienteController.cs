@@ -19,5 +19,63 @@ namespace MvcApplicationSTA.Controllers
             return View(modeloCliente.listarCliente());
         }
 
+
+
+
+        //controller Insertar Cliente
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(cliente c)
+        {
+            try
+            {
+                if (modeloCliente.InsertarCliente(c).Equals("OK"))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+        //controller Insertar Vehiculo
+        
+        public ActionResult CreateV()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateV(vehiculo v)
+        {
+            try
+            {
+                if (modeloCliente.InsertarVehiculo(v).Equals("OK"))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Create");
+                }
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+
     }
 }

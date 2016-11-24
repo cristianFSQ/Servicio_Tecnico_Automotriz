@@ -1,0 +1,82 @@
+﻿@model MvcApplicationSTA.Models.vehiculo
+
+@{
+    ViewBag.Title = "CreateV";
+    Layout = "~/Views/PaginaMaestra/_LayoutPaginaMaestra.cshtml";
+}
+
+@section region_principal{
+
+<h2>Registro Vehiculo</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>vehiculo</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VerRut, "Rut de cliente")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VerRut)
+            @Html.ValidationMessageFor(model => model.VerRut)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehAno, "Año de fabricacion")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VehAno)
+            @Html.ValidationMessageFor(model => model.VehAno)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehPat,"Patente")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VehPat)
+            @Html.ValidationMessageFor(model => model.VehPat)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehMot,"Motor")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VehMot)
+            @Html.ValidationMessageFor(model => model.VehMot)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehMar,"Marca")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.VehMar)
+            @Html.ValidationMessageFor(model => model.VehMar)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VehMar, "Modelo")
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+}
+
+@section region_baner{
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

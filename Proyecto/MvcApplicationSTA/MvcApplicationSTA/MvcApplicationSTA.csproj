@@ -263,8 +263,10 @@
     <Content Include="Views\PaginaMaestra\_LayoutPaginaMaestra.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Mecanico\Index.cshtml" />
-    <Content Include="Views\Mecanico\Create.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Mecanico\Create.cshtml" />
+    <Content Include="Views\Cliente\Create.cshtml" />
+    <Content Include="Views\Cliente\CreateV.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

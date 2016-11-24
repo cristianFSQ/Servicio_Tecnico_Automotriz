@@ -158,4 +158,22 @@
     <Parameter Name="IdM" Parameter="idM" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.LISTAR_VEHICULO" Method="LISTAR_VEHICULO">
+    <ElementType Name="LISTAR_VEHICULOResult">
+      <Column Name="VerRut" Type="System.String" DbType="Char(12) NOT NULL" CanBeNull="false" />
+      <Column Name="VehAno" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="VehPat" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
+      <Column Name="MotDes" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="MarDes" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ModDes" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.INSERTAR_VEHICULO" Method="INSERTAR_VEHICULO">
+    <Parameter Name="RutV" Parameter="rutV" Type="System.String" DbType="Char(12)" />
+    <Parameter Name="AnoV" Parameter="anoV" Type="System.String" DbType="Char(4)" />
+    <Parameter Name="PatV" Parameter="patV" Type="System.String" DbType="Char(10)" />
+    <Parameter Name="MotV" Parameter="motV" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MarV" Parameter="marV" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

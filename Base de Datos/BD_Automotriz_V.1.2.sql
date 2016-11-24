@@ -1,7 +1,6 @@
 create database BD_Automotriz
 use BD_Automotriz
 
-select * from mecanico
 
 -- 1. TABLA PERFIL DE USUARIO
 
@@ -15,6 +14,7 @@ go
 insert into UserPerfiles values(1,'Administrador')
 insert into UserPerfiles values(2,'Mecanico')
 insert into UserPerfiles values(3,'Cliente')
+
 
 -- 2. TABLA SEGUROS SOAP
 
@@ -30,6 +30,7 @@ go
 insert into seguro values('Nivel 1',15,20000)
 insert into seguro values('Nivel 2',25,35000)
 insert into seguro values('Nivel 3',45,45000)
+
 
 -- 3. TABLA MOTOR
 
@@ -49,6 +50,7 @@ insert into motor values('Motor 1.8');
 insert into motor values('Motor 2.0');
 insert into motor values('Motor 2.2');
 insert into motor values('Motor 2.5');
+
 
 -- 4. TABLA MARCAS
 
@@ -70,6 +72,7 @@ insert into marcas values('Mitsubishi')
 insert into marcas values('Nissan')
 insert into marcas values('Renault')
 
+
 -- 5. TABLA MECANICO
 
 create table mecanico
@@ -86,6 +89,7 @@ MecUid int not null constraint FkMecUid references UserPerfiles(PerID),
 )
 go
 
+
 -- 6. TABLA ADMINISTRADOR
 
 create table administrador
@@ -98,7 +102,9 @@ AdmID int not null constraint FkAdmID references UserPerfiles(PerID),
 )
 go
 
-insert into administrador values('22334422-2','123456','Juan','Nutella',1)
+--El unico administrador ingresado por defecto
+insert into administrador values('22333444-5','123456','Juan','Nutella',1)
+
 
 -- 7. TABLA MODELOS
 
@@ -161,6 +167,7 @@ insert into modelos values(10,'Logan')
 insert into modelos values(10,'Symbol')
 insert into modelos values(10,'Sandero')
 
+
 -- 8. TABLA CLIENTES
 
 create table cliente
@@ -173,8 +180,8 @@ CliTel varchar(10)not null,
 CliEma varchar(70)not null,
 CliCla varchar(10)not null,
 CliClv varchar(10)not null,
-CliSeg int not null constraint FkCliSeg references seguro(SegID),
-CliPer int not null constraint FkCliPer references UserPerfiles(PerID),
+CliSeg int  constraint FkCliSeg references seguro(SegID), -- se refiere al nivel del seguro para poder relizar el dcto.
+CliPer int  constraint FkCliPer references UserPerfiles(PerID),-- se refiere al tipo de perfil cliente =3
 )
 go
 
@@ -194,19 +201,21 @@ VehMar int not null constraint FkVehMar references marcas(MarID),
 go
 
 
-											/*PROCEDIMEINTOS ALMACENADOS*/
+
+
+--PROCEDIMEINTOS ALMACENADOS MECANICO
 
 --LISTAR MECANICO
 create procedure LISTAR_MECANICO As 
 select MecRut,MecCla,MecClv,MecNom,MecApe,MecFon,MecCor from mecanico
 go
 
---BUSCAR MECANICO
 
 --INSERTAR MECANICO
 create procedure INSERTAR_MECANICO
 @RutM char(12),@Clave1M varchar(10),@Clave2M varchar(10),@NombreM varchar(70),@ApellidoM varchar(70),@FonoM char(10),@CorreoM varchar(70),@IdM int
 as
+set @IdM=2
 insert into mecanico(MecRut,MecCla,MecClv,MecNom,MecApe,MecFon,MecCor,MecUid)values(@RutM,@Clave1M,@Clave2M,@NombreM,@ApellidoM,@FonoM,@CorreoM,@IdM)
 go
 
@@ -221,23 +230,47 @@ delete mecanico where MecID=@rut_mecanico
 go
 
 --BUSCAR MECANICO
---BUSCAR
 create procedure BUSCAR_MECANICO
 @rut int
 as select * from mecanico where MecID=@rut
 go
 
 
+--PROCEDIMEINTOS ALMACENADOS CLIENTE
+
 --LISTAR CLIENTE
+
 create procedure LISTAR_CLIENTE As 
-SELECT cliente.CliRut, cliente.CliNom, cliente.CliApe, cliente.CliTel, cliente.CliCla, cliente.CliClv, cliente.CliEma,seguro.SegTip
-FROM   cliente INNER JOIN
-       seguro ON cliente.CliSeg = seguro.SegID
+SELECT cliente.CliRut, cliente.CliNom, cliente.CliApe, cliente.CliTel, cliente.CliEma, cliente.CliCla, cliente.CliClv, seguro.SegTip
+FROM cliente INNER JOIN
+     seguro ON cliente.CliSeg = seguro.SegID
 go
 
 --INSERTAR CLIENTE
 create procedure INSERTAR_CLIENTE
-@RutC char(12),@NombreC varchar(70),@ApellidoC varchar(70),@FonoC varchar(10),@EmailC varchar(70),@Clave1C varchar(10),@Clave2C varchar(10),@SeguroC int,@IdC int=2
+@RutC char(12),@NombreC varchar(70),@ApellidoC varchar(70),@FonoC varchar(10),@EmailC varchar(70),@Clave1C varchar(10),@Clave2C varchar(10),@SeguroC int,@IdC int
 as
+set @IdC=3
 insert into cliente(CliRut,CliNom,CliApe,CliTel,CliEma,CliCla,CliClv,CliSeg,CliPer)values(@RutC,@NombreC,@ApellidoC,@FonoC,@EmailC,@Clave1C,@Clave2C,@SeguroC,@IdC)
 go
+
+
+--PROCEDIMEINTOS ALMACENADOS CLIENTE-VEHICULO
+
+--LISTAR VEHICULO
+create procedure LISTAR_VEHICULO As 
+SELECT vehiculo.VerRut, vehiculo.VehAno, vehiculo.VehPat, motor.MotDes, marcas.MarDes, modelos.ModDes
+FROM   vehiculo INNER JOIN
+       motor ON vehiculo.VehMot = motor.MotID INNER JOIN
+       marcas ON vehiculo.VehMar = marcas.MarID INNER JOIN
+       modelos ON marcas.MarID = modelos.ModMar
+go
+
+--INSERTAR VEHICULO
+create procedure INSERTAR_VEHICULO
+@RutV char(12),@AnoV char(4),@PatV char(10),@MotV int,@MarV int
+as
+insert into vehiculo(VerRut,VehAno,VehPat,VehMot,VehMar)values(@RutV,@AnoV,@PatV,@MotV,@MarV)
+go
+
+											

@@ -202,6 +202,20 @@ namespace MvcApplicationSTA.Models
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rutM, clave1M, clave2M, nombreM, apellidoM, fonoM, correoM, idM);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LISTAR_VEHICULO")]
+		public ISingleResult<LISTAR_VEHICULOResult> LISTAR_VEHICULO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<LISTAR_VEHICULOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INSERTAR_VEHICULO")]
+		public int INSERTAR_VEHICULO([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RutV", DbType="Char(12)")] string rutV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AnoV", DbType="Char(4)")] string anoV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PatV", DbType="Char(10)")] string patV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotV", DbType="Int")] System.Nullable<int> motV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MarV", DbType="Int")] System.Nullable<int> marV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rutV, anoV, patV, motV, marV);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.administrador")]
@@ -2557,6 +2571,122 @@ namespace MvcApplicationSTA.Models
 				if ((this._SegTip != value))
 				{
 					this._SegTip = value;
+				}
+			}
+		}
+	}
+	
+	public partial class LISTAR_VEHICULOResult
+	{
+		
+		private string _VerRut;
+		
+		private string _VehAno;
+		
+		private string _VehPat;
+		
+		private string _MotDes;
+		
+		private string _MarDes;
+		
+		private string _ModDes;
+		
+		public LISTAR_VEHICULOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VerRut", DbType="Char(12) NOT NULL", CanBeNull=false)]
+		public string VerRut
+		{
+			get
+			{
+				return this._VerRut;
+			}
+			set
+			{
+				if ((this._VerRut != value))
+				{
+					this._VerRut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehAno", DbType="Char(4) NOT NULL", CanBeNull=false)]
+		public string VehAno
+		{
+			get
+			{
+				return this._VehAno;
+			}
+			set
+			{
+				if ((this._VehAno != value))
+				{
+					this._VehAno = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VehPat", DbType="Char(10) NOT NULL", CanBeNull=false)]
+		public string VehPat
+		{
+			get
+			{
+				return this._VehPat;
+			}
+			set
+			{
+				if ((this._VehPat != value))
+				{
+					this._VehPat = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MotDes", DbType="VarChar(15)")]
+		public string MotDes
+		{
+			get
+			{
+				return this._MotDes;
+			}
+			set
+			{
+				if ((this._MotDes != value))
+				{
+					this._MotDes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MarDes", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string MarDes
+		{
+			get
+			{
+				return this._MarDes;
+			}
+			set
+			{
+				if ((this._MarDes != value))
+				{
+					this._MarDes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModDes", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ModDes
+		{
+			get
+			{
+				return this._ModDes;
+			}
+			set
+			{
+				if ((this._ModDes != value))
+				{
+					this._ModDes = value;
 				}
 			}
 		}

@@ -47,7 +47,7 @@
                                 <li><a href="#">Seguros</a></li>
                                 <li><a href="#">Servicio T&eacute;cnico</a></li>
                                 <li><a href="#">Mec&aacute;nico</a></li>
-                                <li><a href="#">Cliente</a></li>
+                                <li><a href="@Url.Action("Create", "Cliente")">Cliente</a></li>
                                 <li><a href="#">Contacto</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
@@ -68,10 +68,10 @@
             {
                 <section class="main">
                     <article class="portada">
-                        <img class="slides w3-animate-left" src="~/Content/Images/portada1.jpg" />
+                        <img class="slides w3-animate-right" src="~/Content/Images/portada1.jpg" />
                         <img class="slides w3-animate-right" src="~/Content/Images/promo2.jpg">
-                        <img class="slides w3-animate-bottom" src="~/Content/Images/promo3.jpg">
-                        <img class="slides w3-animate-top" src="~/Content/Images/repuestos.jpg">
+                        <img class="slides w3-animate-right" src="~/Content/Images/promo3.jpg">
+                        <img class="slides w3-animate-r" src="~/Content/Images/repuestos.jpg">
                     </article>
          
                     <script>
@@ -87,7 +87,7 @@
                                 myIndex++;
                                 if (myIndex > x.length) {myIndex = 1}
                                 x[myIndex-1].style.display = "block";
-                                setTimeout(carousel, 5000);
+                                setTimeout(carousel, 7000);
                             }
                     </script>
 

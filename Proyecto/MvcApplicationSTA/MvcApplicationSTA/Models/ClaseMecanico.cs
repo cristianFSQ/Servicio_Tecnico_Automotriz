@@ -35,7 +35,7 @@ namespace MvcApplicationSTA.Models
             string resultado = string.Empty;
             try
             {
-                contextoMecanico.INSERTAR_MECANICO(a.MecRut, a.MecCla, a.MecClv, a.MecNom, a.MecApe, a.MecFon, a.MecCor,a.MecUid=2);
+                contextoMecanico.INSERTAR_MECANICO(a.MecRut, a.MecCla, a.MecClv, a.MecNom, a.MecApe, a.MecFon, a.MecCor,a.MecUid);
                 resultado = "Insertado";
             }
             catch (Exception ex)
